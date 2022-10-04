@@ -1,0 +1,40 @@
+{% extends "index.html"%}
+
+{% block contenido %}
+
+<h1 class="text-center">Información de todos los Usuarios</h1>
+
+<table class="table">
+    <thead class="table-info">
+        <tr>
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>Email</td>
+            <td>Fecha de registro</td>
+            <td>Fecha de actualización</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for usuario in lista_usuarios: %} {# lista_usuarios es la variable creada en controlador#}
+        <tr>
+            <td>{{usuario.nombre}}</td> {# usuario(variable).nombre(atributo de los objetos de la clase Usuarios)#}
+            <td>{{usuario.apellido}}</td>
+            <td>{{usuario.email}}</td>
+            <td>{{usuario.created_at}}</td>
+            <td>{{usuario.update_at}}</td>
+            <td>
+                <a href="/usuario/{{usuario.id}}">Ver</a>
+                <a href="/editar/{{usuario.id}}">Editar</a>
+                <a href="/borrar/{{usuario.id}}">Eliminar</a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+<div>
+    <a href="/" class="btn btn-primary">Volver al inicio</a>
+
+</div>
+{% endblock %}

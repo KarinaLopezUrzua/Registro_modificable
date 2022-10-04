@@ -1,0 +1,35 @@
+{% extends "index.html"%}
+
+{% block contenido %}
+
+<h1 class="text-center">Información de uno de los Usuarios</h1>
+
+<table class="table">
+    <thead class="table-info">
+        <tr>
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>Email</td>
+            <td>Fecha de registro</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    {# no iteramos en un ciclo for, porque solo estamos retornando UN objeto)#}
+    <tbody>
+        <tr>
+            <td>{{ver_un_usuario.nombre}}</td> {# usuario(variable).nombre(atributo de los objetos de la clase Usuarios)#}
+            <td>{{ver_un_usuario.apellido}}</td>
+            <td>{{ver_un_usuario.email}}</td>
+            <td>{{ver_un_usuario.created_at}}</td>
+            <td>
+                <a href="/editar/{{ver_un_usuario.id}}">Editar</a>
+                <a href="/borrar/{{ver_un_usuario.id}}">Eliminar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <a href="/" class="btn btn-primary">Volver al inicio</a>
+
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "index.html"%}
+
+{% block contenido %}
+
+    <h1 class="text-center">Formulario de Registro</h1>
+
+    <h4>Crea tu usuario</h4>
+
+    <form class="row g-3" action='/crear' method='post'>
+        <!--action: es la ruta que procesa el formulario // method: las opciones son GET y POST-->
+        <div class="col-md-8">
+            <label for='name' class="form-label">Nombre</label>
+            <input type='text' class="form-control" name='nombre'>
+            <!--input: recopilan datos del usuario-->
+        </div>
+
+        <div class="col-md-8">
+            <label for='apellido' class="form-label">Apellido</label>
+            <input type="text" class="form-control" name='apellido'>
+        </div>
+        
+        <div class="col-md-8">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" name='email'>
+        </div>
+        
+        <div>
+            <input type="checkbox" name="acepto" required>
+            <label for="acepto">He leído y acepto los términos y condiciones de uso</label>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md">
+            <button type="submit" class="btn btn-primary me-md-2">Agregar Usuario</button>
+        <!--formas de enviar un formulario... <input type='submit'> o <button>Submit</button> -->
+        </div>
+    </form>
+
+{% endblock %}
